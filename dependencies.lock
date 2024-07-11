@@ -1,0 +1,63 @@
+dependencies:
+  espressif/cmake_utilities:
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.5.3
+  espressif/esp_modem:
+    component_hash: e48da33fee082dd9d9a97a354a228057e07a14ac108766b40ad84e018205410a
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.1.0
+  espressif/esp_modem_usb_dte:
+    component_hash: 49f66a3bd49202e36168cf092a1dc453548d488e8f4560ac7e7d21802583e8a7
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.2.1
+  espressif/esp_tinyusb:
+    component_hash: f151d680d6847bfcfd5d8eb6d1c3ff926c208e6b963b2e83643a141bc70baa15
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.4.4
+  espressif/iot_bridge:
+    component_hash: 534ef7d20b1b72cb170b7cdc7ee0ab1275a281692d3191bdfc8658a1f34591e9
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.11.7
+  espressif/mesh_lite:
+    component_hash: a1fc90498dd5ba4c08a81dd97a6e739b9c0e61682e2d82ec78a6eb6529cb3d18
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.10.5
+  espressif/tinyusb:
+    component_hash: 214989d502fc168241a4a4f83b097d8ac44a93cd6f1787b4ac10069a8b3bebd3
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.15.0~10
+  espressif/usb_host_cdc_acm:
+    component_hash: ab16b9893f0c23a26bf620ce968b75b3a1a9394e579257a468202ec9803d937d
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 2.0.3
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.4.0
+  joltwallet/littlefs:
+    component_hash: 82fe9d7d57b5b95d29532aec744f3cfdf9ae1775ac0ca52ac61fc6dd7cf53dba
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.14.6
+manifest_hash: 4bd532bd6eaed4d814fdcfe8145b9d029ff26bb750fed4f0493ae01a1acf7074
+target: esp32s2
+version: 1.0.0

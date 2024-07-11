@@ -1,13 +1,47 @@
-- [中文版本](./README_CN.md)
+- [中文版本](https://github.com/espressif/esp-mesh-lite/blob/master/examples/mesh_local_control/README_CN.md)
 
-# ESP-Mesh-Lite
+| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-S2 | ESP32-S3 |
+| ----------------- | ----- | -------- | -------- | -------- | -------- |
 
+# Mesh Local Control Example
 
-ESP-MESH-LITE is a Wi-Fi networking application of [IoT-Bridge](https://github.com/espressif/esp-iot-bridge), based on the **SoftAP + Station** mode, a set of Mesh solutions built on top of the Wi-Fi protocol. ESP-MESH-LITE allows numerous devices (henceforth referred to as nodes) spread over a large physical area (both indoors and outdoors) to be interconnected under a single WLAN (Wireless Local-Area Network). The biggest difference between ESP-MESH-LITE and [ESP-MESH](https://docs.espressif.com/projects/esp-idf/en/v5.0/esp32/api-guides/esp-wifi-mesh.html) (also known as ESP-WIFI-MESH) is that ESP-MESH-LITE allows sub-devices in the network to independently access the external network, and the transmission information is insensitive to the parent node, which greatly reduces the difficulty to develop the application layer. ESP-MESH-LITE is self-organizing and self-healing, which means the network can be built and maintained autonomously.
+## Introduction
 
-For more information about ESP-MESH-LITE, please refer to [ESP-MESH-LITE Guide](https://github.com/espressif/esp-mesh-lite/blob/master/components/mesh_lite/User_Guide.md).
+This example will introduce how to implement a device connection to a remote external server based on Mesh-Lite. Different from ESP-WIFI-MESH, each device in the Mesh-Lite network can independently access the external network.
 
-In the [examples](https://github.com/espressif/esp-mesh-lite/blob/master/examples) directory, demos of some common application scenarios are implemented for users to quickly integrate into their own application projects.
+This example implements the function of device data transmission in the mesh network to the TCP server.
 
-- [examples/mesh_local_control](examples/mesh_local_control): This example only simply demonstrates device networking and TCP communication, and does not include complex network applications. Users can carry out secondary development based on this example.
-- [examples/rainmaker/led_light](examples/rainmaker/led_light): This example integrates the Mesh functionality into the Rainmaker application. Users can configure the device through the `Nova Home` APP and successfully connect to the Rainmaker cloud. The device is connected to the cloud based on Rainmaker. It can also provide other devices with the ability to surf the Internet wirelessly, and form a network with the Mesh-Lite function, which greatly reduces the load on the router and expands the wireless communication range.
+**It is recommended to compile with esp-idf version 4.4**
+
+## Hardware
+
+* At least 2 x ESP32 development boards
+* 1 x router that supports 2.4G
+
+## Process
+
+### Run TCP server
+
+1. Connect PC or the mobile phone to the router.
+2. Use a TCP testing tool (any third-party TCP testing software) to create a TCP server.
+
+### Configure the devices
+
+Enter `idf.py menuconfig`, and configure the followings under the submenu "Example Configuration".
+
+ * The router information.
+ * ESP-WIFI-MESH network: The network password length should be between 8 and 64 bits (both exclusive), and the network will not be encrypted if you leave the password blank.
+ * TCP server: the information of the TCP server run on the PC.
+
+<img src="https://raw.githubusercontent.com/espressif/esp-mesh-lite/master/examples/mesh_local_control/device_config.png" alt="device_config" width="80%" div align=center />
+
+### Build and Flash
+
+CMake:
+```shell
+idf.py erase_flash flash monitor -b 921600 -p /dev/ttyUSBx
+```
+
+### Run
+
+ESP-WIFI-MESH devices send the real-time device status to the TCP server at an interval of three seconds.
