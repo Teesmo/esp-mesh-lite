@@ -1,0 +1,5 @@
+## IDF Component Manager Manifest File
+dependencies:
+  espressif/mesh_lite: "^0.10.5"
+  espressif/iot_bridge: "^0.11.7"
+  joltwallet/littlefs: "~=1.14.8"
